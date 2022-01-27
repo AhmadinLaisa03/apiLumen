@@ -16,3 +16,16 @@
 $router->get('/', function () use ($router) {
     return $router->app->version();
 });
+
+$router->group(['prefix' => 'api'], function () use ($router) {
+    $router->get('kategori', ['uses'=>'KategoriController@index']);
+    $router->post('kategori', ['uses'=>'KategoriController@create']);
+    $router->get('kategori/{id}', ['uses'=>'KategoriController@show']);
+    $router->put('kategori/{id}', ['uses'=>'KategoriController@update']);
+    $router->delete('kategori/{id}', ['uses'=>'KategoriController@destroy']);
+
+    $router->get('pelanggan', ['uses' => 'PelangganController@index']);
+    $router->get('pelanggan/{id}', ['uses' => 'PelangganController@show']);
+    $router->post('pelanggan', ['uses' => 'PelangganController@create']);
+    $router->delete('pelanggan/{id}', ['uses' => 'PelangganController@destroy']);
+});
