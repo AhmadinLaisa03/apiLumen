@@ -18,8 +18,15 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
      *
      * @var array
      */
+    protected $primaryKey = 'iduser';
+
     protected $fillable = [
-        'name', 'email',
+        'email',
+        'password',
+        'level',
+        'api_token',
+        'status',
+        'relasi',
     ];
 
     /**
@@ -28,6 +35,6 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
      * @var array
      */
     protected $hidden = [
-        'password',
+
     ];
 }
